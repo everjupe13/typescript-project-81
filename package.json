@@ -1,0 +1,62 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.1.0",
+  "description": "Typescript Form Generator package",
+  "author": "Hexlet",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/everjupe13/typescript-project-81.git"
+  },
+  "bugs": {
+    "url": "https://github.com/everjupe13/typescript-project-81/issues"
+  },
+  "homepage": "https://github.com/everjupe13/typescript-project-81#readme",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && tspc --project tsconfig.build.json",
+    "start:dev": "npx nodemon",
+    "start:dev-experimental": "node --watch --loader=ts-node/esm ./src/index.ts",
+    "start": "npm run build && node dist/index.js",
+    "exec": "npx ts-node ./src/index.ts",
+    "lint": "eslint . --ext ts --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts --report-unused-disable-directives --max-warnings 0 --fix",
+    "test": "vitest",
+    "test-coverage": "npx vitest run --coverage"
+  },
+  "simple-git-hooks": {
+    "pre-push": "make lint"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.44.6",
+    "@types/node": "^20.8.10",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "@vitest/coverage-v8": "^0.34.6",
+    "eslint": "^8.53.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard-with-typescript": "^39.1.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unicorn": "^55.0.0",
+    "nodemon": "^3.0.1",
+    "npm-check-updates": "^16.14.6",
+    "prettier": "^3.3.3",
+    "rimraf": "^5.0.5",
+    "simple-git-hooks": "^2.9.0",
+    "ts-node": "^10.9.1",
+    "ts-patch": "^3.2.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.2.2",
+    "typescript-transform-paths": "^3.5.0",
+    "vitest": "^0.34.6"
+  }
+}
