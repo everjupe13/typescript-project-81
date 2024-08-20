@@ -25,6 +25,7 @@ type IFormCallback = (f: IFormCallbackParameters) => void
 export class FormGenerator {
   private static readonly alwaysOmittedAttibutes: string[] = ['as']
   private static readonly valueAsContentTags: string[] = ['textarea']
+  private static readonly discardSotringTags: string[] = ['form']
 
   private static buildAttributesByTag(
     tag: string,
@@ -36,10 +37,10 @@ export class FormGenerator {
         ? COMMONG_TAGS[defaultTag].defaultAttrs
         : ({} as IAttributes)
 
-    // const attributesOrdered =
-    //   defaultTag && COMMONG_TAGS[defaultTag]?.attrsOrder
-    //     ? COMMONG_TAGS[defaultTag].attrsOrder
-    //     : undefined
+    const attributesOrdered =
+      defaultTag && COMMONG_TAGS[defaultTag]?.attrsOrder
+        ? COMMONG_TAGS[defaultTag].attrsOrder
+        : undefined
 
     const defaultAttributesEntries = Object.entries(defaultAttributes)
     const outputAttributes = defaultAttributesEntries.reduce(
@@ -53,31 +54,36 @@ export class FormGenerator {
       { ...attributes }
     )
 
-    // const sortedOutputAttributes = Object.fromEntries(
-    //   Object.entries(outputAttributes).sort((a, b) => {
-    //     if (!attributesOrdered) {
-    //       return 0
-    //     }
+    const sortedOutputAttributes = Object.fromEntries(
+      Object.entries(outputAttributes).sort((a, b) => {
+        if (!attributesOrdered) {
+          return 0
+        }
 
-    //     const aIndex = attributesOrdered.indexOf(a[0])
-    //     const bIndex = attributesOrdered.indexOf(b[0])
+        const aIndex = attributesOrdered.indexOf(a[0])
+        const bIndex = attributesOrdered.indexOf(b[0])
 
-    //     if (aIndex === -1 && bIndex === -1) {
-    //       return 0
-    //     }
+        if (aIndex === -1 && bIndex === -1) {
+          return 0
+        }
 
-    //     if (aIndex === -1) {
-    //       return 1
-    //     }
-    //     if (bIndex === -1) {
-    //       return -1
-    //     }
+        if (aIndex === -1) {
+          return 1
+        }
+        if (bIndex === -1) {
+          return -1
+        }
 
-    //     return aIndex - bIndex
-    //   })
-    // )
+        return aIndex - bIndex
+      })
+    )
 
-    return omit(outputAttributes, this.alwaysOmittedAttibutes)
+    return omit(
+      this.discardSotringTags.includes(tag)
+        ? outputAttributes
+        : sortedOutputAttributes,
+      this.alwaysOmittedAttibutes
+    )
   }
 
   private static mapFormAttributes(
