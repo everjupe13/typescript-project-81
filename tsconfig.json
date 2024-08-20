@@ -112,6 +112,7 @@
   },
   "include": [
     "src/**/*",
+    "index.ts",
     "vitest.config.ts"
   ]
 }
