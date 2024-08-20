@@ -1,1 +1,1 @@
-export { HexletCode } from './models/form-generator'
+export { HexletCode as default } from './models/form-generator'
