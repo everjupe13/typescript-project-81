@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 
-import { Tag } from '@/models/tag'
+import { Tag } from './tag'
 
 test('Tag form output', () => {
   expect(new Tag('br').toString()).toBe('<br>')
