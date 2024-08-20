@@ -14,5 +14,12 @@
 // //   <input type="submit" value="Wow">
 // // </form>
 
+import { HexletCode } from './models/form-generator'
+
 // Создаем шаблон template с полями name, job и gender, задаем им имена
-// const template = { name: 'rob', job: 'hexlet', gender: 'm' }
+const template = { name: 'rob', job: 'hexlet', gender: 'm' }
+
+console.log(HexletCode.formFor(template, {}, f => {}))
+console.log(HexletCode.formFor(template, { url: '/users' }, f => {}))
+
+// export { HexletCode }

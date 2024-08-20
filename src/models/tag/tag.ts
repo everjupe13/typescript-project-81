@@ -1,4 +1,4 @@
-import { COMMONG_TAGS } from '@/constants'
+import { COMMONG_TAGS } from '../../constants'
 
 const TEMPLATE_STRING_TARGETS = {
   ATTRIBUTES: '{attributes}',
@@ -7,19 +7,15 @@ const TEMPLATE_STRING_TARGETS = {
 
 export class Tag {
   public tag: string
-  public attributes: Record<string, string>
+  public attributes: object
   public content: string | undefined
 
   public htmlString: string
   protected attributesString: string
 
-  constructor(
-    tag: string,
-    attributes?: Record<string, string>,
-    content?: string
-  ) {
+  constructor(tag: string, attributes: object = {}, content?: string) {
     this.tag = tag
-    this.attributes = attributes || {}
+    this.attributes = attributes
     this.content = content
 
     this.attributesString = this.buildAttributesString()

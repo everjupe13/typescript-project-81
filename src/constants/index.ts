@@ -13,5 +13,8 @@ export const COMMONG_TAGS = {
   },
   label: {
     paired: true
+  },
+  form: {
+    paired: true
   }
 }
