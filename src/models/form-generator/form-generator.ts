@@ -12,7 +12,7 @@ type IFormGeneratorOptions = {
 type IFormCallbackParameters = object
 type IFormCallback = (f: IFormCallbackParameters) => void
 
-export class FormGenerator {
+export class HexletCode {
   constructor() {}
 
   private static mapFormOptionsToAttributes(
