@@ -1,2 +1,2 @@
-export { capitalize } from './capitalize'
-export { omit } from './omit'
+export { capitalize } from './capitalize';
+export { omit } from './omit';

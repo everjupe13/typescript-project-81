@@ -1,46 +1,47 @@
-import { IAttributes } from '../types'
+/* eslint-disable import/prefer-default-export */
+import { IAttributes } from '../types';
 
 export const COMMONG_TAGS: Record<
-  string,
-  {
-    paired: boolean
-    defaultAttrs?: IAttributes
-    attrsOrder?: (keyof IAttributes)[]
-  }
+string,
+{
+  paired: boolean
+  defaultAttrs?: IAttributes
+  attrsOrder?: (keyof IAttributes)[]
+}
 > = {
   div: {
-    paired: true
+    paired: true,
   },
   img: {
-    paired: false
+    paired: false,
   },
   br: {
-    paired: false
+    paired: false,
   },
   label: {
-    paired: true
+    paired: true,
   },
   input: {
     paired: false,
     defaultAttrs: {
-      type: 'text'
+      type: 'text',
     },
-    attrsOrder: ['name', 'type', 'value']
+    attrsOrder: ['name', 'type', 'value'],
   },
   form: {
     paired: true,
     defaultAttrs: {
       action: '#',
-      method: 'post'
+      method: 'post',
     },
-    attrsOrder: ['action', 'method']
+    attrsOrder: ['action', 'method'],
   },
   textarea: {
     paired: true,
     defaultAttrs: {
       cols: 20,
-      rows: 40
+      rows: 40,
     },
-    attrsOrder: ['cols', 'rows', 'name']
-  }
-}
+    attrsOrder: ['cols', 'rows', 'name'],
+  },
+};
