@@ -1,1 +1,1 @@
-export { FormGenerator as HexletCode } from './form-generator'
+export { HexletCode } from './form-generator'
