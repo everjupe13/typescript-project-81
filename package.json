@@ -12,7 +12,7 @@
     "url": "https://github.com/everjupe13/typescript-project-81/issues"
   },
   "homepage": "https://github.com/everjupe13/typescript-project-81#readme",
-  "main": "dist/index.js",
+  "main": "index.ts",
   "engines": {
     "node": ">=18"
   },
