@@ -1,4 +1,5 @@
 import { COMMONG_TAGS } from '../../constants'
+import { IAttributes } from '../../types'
 
 const TEMPLATE_STRING_TARGETS = {
   ATTRIBUTES: '{attributes}',
@@ -7,13 +8,13 @@ const TEMPLATE_STRING_TARGETS = {
 
 export class Tag {
   public tag: string
-  public attributes: object
+  public attributes: IAttributes
   public content: string | undefined
 
   public htmlString: string
   protected attributesString: string
 
-  constructor(tag: string, attributes: object = {}, content?: string) {
+  constructor(tag: string, attributes: IAttributes = {}, content?: string) {
     this.tag = tag
     this.attributes = attributes
     this.content = content
@@ -33,7 +34,7 @@ export class Tag {
       throw new Error("provided tag isn't supported yet")
     }
 
-    const currentTag = this.tag.toLowerCase() as keyof typeof COMMONG_TAGS
+    const currentTag = this.tag.toLowerCase()
     const currentTagData = COMMONG_TAGS[currentTag]
 
     const withAttributes = Boolean(this.attributesString)
